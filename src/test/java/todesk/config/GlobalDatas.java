@@ -4,7 +4,7 @@ package todesk.config;
  * GlobalDatas
  * 全局配置数据类GlobalDatas，统筹管理项目的基础信息
  * @author lacheln
- * @date 2023/2/6 01:57
+ * @date 2023/2/6
  * @since 1.0.0
  */
 public class GlobalDatas {

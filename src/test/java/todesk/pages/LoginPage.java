@@ -10,7 +10,7 @@ import todesk.common.BasePage;
  * LoginPage
  *
  * @author chenchao
- * @date 2023/2/3 20:18
+ * @date 2023/2/3
  * @since 1.0.0
  */
 @SuppressWarnings("all")

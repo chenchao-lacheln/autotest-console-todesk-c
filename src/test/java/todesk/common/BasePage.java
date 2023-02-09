@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * BasePage
  * 封装页面层的公用方法
  * @author lacheln
- * @date 2023/2/6 01:52
+ * @date 2023/2/6
  * @since 1.0.0
  */
 public class BasePage {
