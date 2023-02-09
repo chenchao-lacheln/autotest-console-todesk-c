@@ -17,7 +17,7 @@ import org.testng.annotations.*;
 import java.util.concurrent.TimeUnit;
 
 
-public class HelloTestNg {
+public class TestDemo {
 
         private WebDriver driver;
 
