@@ -15,6 +15,7 @@ import todesk.pages.LoginPage;
  * @date 2023/2/7
  * @since 1.0.0
  */
+@SuppressWarnings("all")
 public class TestLogin extends BaseTest {
     @BeforeMethod
     public void setup(){

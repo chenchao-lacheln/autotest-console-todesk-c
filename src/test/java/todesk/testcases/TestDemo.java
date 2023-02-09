@@ -16,7 +16,7 @@ import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
-
+@SuppressWarnings("all")
 public class TestDemo {
 
         private WebDriver driver;

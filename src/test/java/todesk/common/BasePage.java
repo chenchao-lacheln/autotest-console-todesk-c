@@ -3,9 +3,12 @@ package todesk.common;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.swing.*;
 
 /**
  * BasePage
@@ -14,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * @date 2023/2/6
  * @since 1.0.0
  */
+@SuppressWarnings("all")
 public class BasePage {
     private static Logger logger = Logger.getLogger(BasePage.class);
     /**
@@ -111,11 +115,27 @@ public class BasePage {
         driver.switchTo().defaultContent();
     }
 
+    /**
+     * Alert弹窗切换
+     * @param driver 驱动对象
+     */
     public void switchAlert(RemoteWebDriver driver){
         logger.info("切换到alert窗口");
         Alert alert = driver.switchTo().alert();
         //alert.accept(); //点击确认
         //alert.dismiss(); //点击取消
         alert.getText(); //获取弹窗文本
+    }
+
+    /**
+     * 鼠标聚焦到指定元素的通用方法
+     * @param driver 驱动单位
+     * @param by 驱动对象
+     * @param elementName 元素名称
+     */
+    public void moveToElement(RemoteWebDriver driver,By by,String elementName){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(waitElementVisible(driver,by)).perform();
+        logger.info("鼠标移动到元素【" + elementName + "】上了");
     }
 }

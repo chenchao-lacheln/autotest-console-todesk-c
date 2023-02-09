@@ -16,6 +16,7 @@ import java.util.Set;
  * @date 2023/2/6
  * @since 1.0.0
  */
+@SuppressWarnings("all")
 public class BaseTest {
     private static Logger logger = Logger.getLogger(BaseTest.class);
     public RemoteWebDriver driver;
