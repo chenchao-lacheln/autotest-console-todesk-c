@@ -16,7 +16,16 @@
             <version>7.3.0</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.13.6</version>
+        </dependency>
         <!-- Junit5相关依赖导入-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -45,12 +54,67 @@
             <artifactId>junit-platform-engine</artifactId>
             <version>1.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>2.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.8</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>2.9.9</version>
+        </dependency>
 
         <!-- Selenium用到的pom依赖-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.5.1</version>
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>com.github.appium</groupId>-->
+        <!--            <artifactId>java-client</artifactId>-->
+        <!--            <version>7.5.1</version>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-jre8</artifactId>
+            <version>2.28.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.lightbody.bmp</groupId>
+            <artifactId>browsermob-core</artifactId>
+            <version>2.1.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.spullara.mustache.java</groupId>
+            <artifactId>compiler</artifactId>
+            <version>0.9.10</version>
         </dependency>
 
         <!--日志组件依赖-->
@@ -64,6 +128,63 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+
+        <!--在pom.xml文件中的<project>标签下设置属性，避免乱码-->
+        <aspectj.version>1.8.10</aspectj.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
     </properties>
+
+    <!--在<project>标签下引入Maven Surefire插件：生成Allure报表-->
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                &lt;!&ndash; maven-surefire-plugin 配合testng执行测试用例的maven插件 &ndash;&gt;-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>2.22.1</version>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash; 测试失败后，是否忽略并继续测试 &ndash;&gt;-->
+<!--                    <testFailureIgnore>true</testFailureIgnore>-->
+<!--                    <suiteXmlFiles>-->
+<!--                        &lt;!&ndash; testng配置文件名称 &ndash;&gt;-->
+<!--                        <suiteXmlFile>testng.xml</suiteXmlFile>-->
+<!--                    </suiteXmlFiles>-->
+<!--                    &lt;!&ndash;设置参数命令行 &ndash;&gt;-->
+<!--                    <argLine>-->
+<!--                        &lt;!&ndash; UTF-8编码 &ndash;&gt;-->
+<!--                        -Dfile.encoding=UTF-8-->
+<!--                        &lt;!&ndash; 配置拦截器 &ndash;&gt;-->
+<!--                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
+<!--                    </argLine>-->
+<!--                    <systemProperties>-->
+<!--                        <property>-->
+<!--                            &lt;!&ndash; 配置 allure 结果存储路径 &ndash;&gt;-->
+<!--                            <name>allure.results.directory</name>-->
+<!--                            <value>${project.build.directory}/allure-results</value>-->
+<!--                        </property>-->
+<!--                    </systemProperties>-->
+<!--                </configuration>-->
+<!--                <dependencies>-->
+<!--                    &lt;!&ndash; aspectjweaver maven坐标 &ndash;&gt;-->
+<!--                    <dependency>-->
+<!--                        <groupId>org.aspectj</groupId>-->
+<!--                        <artifactId>aspectjweaver</artifactId>-->
+<!--                        <version>${aspectj.version}</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <source>8</source>-->
+<!--                    <target>8</target>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>
