@@ -3,6 +3,7 @@ package todesk.testcases;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import todesk.common.BaseTest;
 import todesk.config.GlobalDatas;
@@ -42,6 +43,29 @@ public class TestLogin extends BaseTest {
         loginPage.clickLogin();
     }
     //测试微信登录
+
+    //测试【账号输入框】输入不同数据
+    @Test(dataProvider = "getInputData")
+    public void test_account_input(String data){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.clickAccountLogin();
+        loginPage.inputMobileOrEmail(data);
+
+    }
+
+    /**
+     * @DataProvider 使用@Test(dataProvider="提供数据的方法名")，完成数据驱动
+     * @return
+     */
+    @DataProvider
+    public Object[][] getInputData(){
+        Object[][] datas={
+                {"18896103409"},
+                {"aaaaaaaaaaa"}
+        };
+        return datas;
+    }
+
 
     @AfterMethod
     public void teardown(){
